@@ -15,6 +15,7 @@ extends PlayerState
 
 var dash_direction = 0
 var base_velocity = 0
+var gravity_modifier = 0.1
 @onready var dash_duration: Timer = $dash_duration
 @onready var sprite: Sprite2D = %Sprite
 
@@ -22,6 +23,7 @@ var base_velocity = 0
 func enter(context:Dictionary = {}) -> void:
 	super()
 	base_velocity = abs(player.velocity.x)
+	player.velocity.y = 0
 	dash_direction = sign(Input.get_axis("left", "right"))
 	if dash_direction == 0: # fallback
 		dash_direction = sprite.scale.x
@@ -43,7 +45,7 @@ func physics_update(delta: float) -> void:
 	# Physic logic
 	player.velocity.x = move_toward(player.velocity.x, (player.DASH_SPEED + base_velocity) * dash_direction, player.ACCELERATION * 10 * delta)
 		
-	player.velocity += player.get_gravity() * delta	
+	player.velocity += player.get_gravity() * delta
 	player.move_and_slide()
 	
 	

@@ -3,6 +3,7 @@ extends Node
 @export var initial_state : EnemyState
 @export var enemy_node : CharacterBody2D
 @export var animation_player_node : CharacterAnimationPlayer
+@export var debug_text : Label
 var current_state: EnemyState
 var states: Dictionary = {}
 var pending_context: Dictionary = {}
@@ -17,6 +18,8 @@ func _ready() -> void:
 	if initial_state:
 		initial_state.enter()
 		current_state = initial_state
+		if debug_text != null: 
+			debug_text.text = initial_state.name
 
 
 
@@ -49,4 +52,6 @@ func on_state_transition(source_state:EnemyState, new_state_name:String, context
 		print_debug("State machine's current state is lost")
 	
 	new_state.enter(context)
+	if debug_text: 
+		debug_text.text = new_state_name
 	current_state = new_state

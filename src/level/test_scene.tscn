@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c1tv4ktn7kmt6" path="res://src/player/player.tscn" id="1_fovfd"]
 [ext_resource type="Texture2D" uid="uid://0dslwo30l0ia" path="res://asset/level_scene/Background_0.png" id="1_vk3x4"]
 [ext_resource type="Texture2D" uid="uid://cx3w6ifyhprl7" path="res://asset/level_scene/Tiles.png" id="3_mqp3c"]
-[ext_resource type="PackedScene" uid="uid://dbw50cbfd65kw" path="res://src/enemy/mushroom/enemy_1.tscn" id="6_05kt3"]
+[ext_resource type="PackedScene" uid="uid://urvb4jjje56x" path="res://src/enemy/reaper/reaper.tscn" id="5_dxo6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vk3x4"]
 texture = ExtResource("3_mqp3c")
@@ -478,11 +478,13 @@ sources/0 = SubResource("TileSetAtlasSource_vk3x4")
 [node name="test_scene" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
 
 [node name="MoonBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(2, 2)
 texture = ExtResource("1_vk3x4")
 centered = false
 
@@ -505,5 +507,5 @@ position = Vector2(1580, 790)
 [node name="player" parent="." instance=ExtResource("1_fovfd")]
 position = Vector2(520, 679)
 
-[node name="Mushroom3" parent="." instance=ExtResource("6_05kt3")]
-position = Vector2(901, 683)
+[node name="Reaper" parent="." instance=ExtResource("5_dxo6u")]
+position = Vector2(634, 796)
