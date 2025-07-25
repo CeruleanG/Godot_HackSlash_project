@@ -20,7 +20,10 @@ var facing : int
 
 func enter(context:Dictionary = {}) -> void:
 	super()
+	var input_direction = sign(Input.get_axis("left", "right"))
+	animation.flip_sprite(input_direction)
 	facing = animation.sprite.scale.x
+	player.velocity.y = 0
 	animation.play("attacking")
 	AudioController.play_sound("Attack",0.1)
 	#print_debug("entering ATTACKING state")
@@ -40,7 +43,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = move_toward(player.velocity.x, player.SPEED * speed_mod * direction, player.ACCELERATION * delta)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.FRICTION * delta)	
-	player.velocity += player.get_gravity() * delta
+	player.velocity += player.get_gravity() * delta * player.GRAVITY_LOW
 	player.move_and_slide()
 	
 	

@@ -1,7 +1,8 @@
 extends EnemyState
 
 @onready var idle_timer: Timer = $IdleTimer
-var idle_time_array = [2.0, 2.5, 4.0]
+var idle_time_array = [2.0, 2.5, 3.0]
+@onready var hurt_animation: CharacterAnimationPlayer = $"../../HurtAnimation"
 
 func enter(context:Dictionary = {}) -> void:
 	super()
@@ -26,22 +27,16 @@ func frame_update(delta: float) -> void:
 
 
 func physics_update(delta: float) -> void:
-	enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.FRICTION * delta)
 	
-	enemy.velocity += enemy.get_gravity() * delta	
 	enemy.move_and_slide()
 
 
 
-func on_got_hit(context: Dictionary):
-	super(context)
-
-
-
-func on_animation_finished(anim_name: StringName):
-	pass
-
+func on_receiving_hit (context: Dictionary):
+	if enemy.is_dead:
+		Transition.emit(self,"dead")
 
 
 func _on_idle_timer_timeout() -> void:
-	Transition.emit(self,"patrolling")
+	#Transition.emit(self,"attacking")
+	pass

@@ -1,0 +1,223 @@
+[gd_scene load_steps=15 format=3 uid="uid://urvb4jjje56x"]
+
+[ext_resource type="Script" uid="uid://bvysfbao7ol7h" path="res://src/enemy/reaper/reaper.gd" id="1_12cty"]
+[ext_resource type="Script" uid="uid://bu1x4j5ovdkc2" path="res://src/class/class_CharacterAnimationPlayer.gd" id="1_upx5k"]
+[ext_resource type="Script" uid="uid://b4xupn1gmo05f" path="res://src/class/class_Health.gd" id="2_62vb4"]
+[ext_resource type="Script" uid="uid://dyoqdgu3nnjjx" path="res://src/class/class_HurtBox.gd" id="2_al2jm"]
+[ext_resource type="Texture2D" uid="uid://tcflddfjfixs" path="res://asset/reaper_sprite/idle.png" id="3_obu5l"]
+[ext_resource type="PackedScene" uid="uid://c5fkx6gd7xb72" path="res://src/state_machine/enemy_state_machine.tscn" id="4_12cty"]
+[ext_resource type="Script" uid="uid://dtdx8lsx307qk" path="res://src/class/class_EnemyState.gd" id="5_obu5l"]
+[ext_resource type="Script" uid="uid://w06haxisn08a" path="res://src/state_machine/reaper/idling.gd" id="7_62vb4"]
+
+[sub_resource type="Animation" id="Animation_mjcl7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_obu5l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.863436, 5.31845e-06, 7.70092e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_62vb4"]
+resource_name = "idling"
+length = 0.80001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_obu5l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_mv2nj"]
+resource_name = "hurt"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.000667013),
+"update": 0,
+"values": [Color(0.863436, 5.31845e-06, 7.70092e-07, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mv2nj"]
+_data = {
+&"RESET": SubResource("Animation_mjcl7"),
+&"hurt": SubResource("Animation_mv2nj"),
+&"idling": SubResource("Animation_62vb4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62vb4"]
+size = Vector2(14, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmoqk"]
+size = Vector2(50, 134)
+
+[node name="Reaper" type="CharacterBody2D" groups=["Enemy_body"]]
+z_index = 1
+collision_layer = 4
+script = ExtResource("1_12cty")
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_62vb4")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://b4xupn1gmo05f"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]
+libraries = {
+&"": SubResource("AnimationLibrary_mv2nj")
+}
+autoplay = "idling"
+script = ExtResource("1_upx5k")
+sprite = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://bu1x4j5ovdkc2"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.863436, 5.31845e-06, 7.70092e-07, 1)
+position = Vector2(1, -135)
+scale = Vector2(4, 4)
+texture = ExtResource("3_obu5l")
+hframes = 5
+region_rect = Rect2(0, 0, 500, 83)
+
+[node name="HurtBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("2_al2jm")
+health = 100.0
+metadata/_custom_type_script = "uid://dyoqdgu3nnjjx"
+
+[node name="HurtShape" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_62vb4")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -134)
+shape = SubResource("RectangleShape2D_wmoqk")
+debug_color = Color(0, 0.814667, 0.94, 0.145098)
+
+[node name="debug" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -288.0
+offset_right = 28.0
+offset_bottom = -265.0
+text = "debug"
+
+[node name="enemy_state_machine" parent="." node_paths=PackedStringArray("initial_state", "enemy_node", "animation_player_node", "debug_text") instance=ExtResource("4_12cty")]
+initial_state = NodePath("idling")
+enemy_node = NodePath("..")
+animation_player_node = NodePath("../AnimationPlayer")
+debug_text = NodePath("../debug")
+
+[node name="idling" type="Node" parent="enemy_state_machine"]
+script = ExtResource("7_62vb4")
+metadata/_custom_type_script = "uid://dtdx8lsx307qk"
+
+[node name="IdleTimer" type="Timer" parent="enemy_state_machine/idling"]
+
+[node name="attacking" type="Node" parent="enemy_state_machine"]
+script = ExtResource("5_obu5l")
+metadata/_custom_type_script = "uid://dtdx8lsx307qk"
+
+[connection signal="timeout" from="enemy_state_machine/idling/IdleTimer" to="enemy_state_machine/idling" method="_on_idle_timer_timeout"]

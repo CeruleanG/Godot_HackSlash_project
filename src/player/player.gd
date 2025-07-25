@@ -41,6 +41,7 @@ const MAX_SPEED = 600.0
 const MAX_JUMP_VELOCITY = 700.0
 const ACCELERATION = 700.0
 const FRICTION = 3000.0
+const GRAVITY_LOW = 0.2
 
 
 

@@ -3,23 +3,24 @@ This is a work-in-progress Hack-n-Slash game developpement project. It serves as
 
 The game is being made using the game engine Godot (GDScript). The goal is to complete a game combining the platformer's moveability and fighting game's combo mechanic to create a smooth hack-n-slash game experience with skilling ceiling.
 
+The concept of the game is where the player controls a character and fights an initially over-powered boss enemy. Through multiple respawns, the player can updrage the character and learn the move of the enemy and finally beat the boss thus finishign the game.
+
 # Current progress
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjZqcjM2bTNjcjA0N3FyeXYxNHhvN3drdGRmMGt3dThvNjFkNzdieCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cgMVWltzyvk3WuC9YH/giphy.gif" width="300">
+<img src="https://media.giphy.com/media/HCmg5z4pUtnbxRkrUg/giphy.gif" width="300">
 
 Basic character control logic has been implemented. Player can control the character to move, jump, dash as well as performing a 3-steps attack. Player can be hurt and die.
 
-A basic enemy type (mushroom) has been implemented. It will move around and hurt the character if it touches the latter's hurtbox. It currently has no tracking mechanic that allows it to chase the character.
+A enemy has been implemented. Though it doesn't not actively do anything. It simply can be hurt and die.
 
-A mock scene has been implemented. It contains the fore-mentioned player and enemy.
+
 
 # Future plan
-1. Design and create a level with spawning enemies (game loop)
-2. Implement a new attacky style allowing the character to perform air combo.
+1. Add AI to the enemy
+2. Add an upgrade scene after the player is defeated
 
 # Known issues
-1. Currently, the camera's limit is set manually, if multiple scenes(levels) are to be created, its parameter should be set automatically by the script
-2. When the player attack in the air and then cancel with dash in the opposite direction, the character sprite will not flip to the right facing as well as the dashing speed
-3. If the mushroom enemy hits the player when it's too close to the player, the player will be knocked into the mushroom instead of being pushed away from it. It is caused by the hitbox of the mushroom too far from its collision box
+1. When the player attack in the air and then cancel with dash in the opposite direction, the character sprite will not flip to the right facing as well as the dashing speed
+
 
 # Lesson learned
 1. Use state machine logic to keep the scalability of the code, multiple cascades of "if" statement will quickly create confusion going into the developpement process.
