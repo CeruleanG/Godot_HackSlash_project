@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://d1jm0kdjsdoh"]
+[gd_scene load_steps=15 format=4 uid="uid://d1jm0kdjsdoh"]
 
 [ext_resource type="PackedScene" uid="uid://c1tv4ktn7kmt6" path="res://src/player/player.tscn" id="1_fovfd"]
+[ext_resource type="Script" uid="uid://b3ttf800kq24p" path="res://src/level/test_scene.gd" id="1_ilme6"]
 [ext_resource type="Texture2D" uid="uid://trvaonj8x47y" path="res://asset/mine_cave_tiles/background1.png" id="1_o8bmp"]
 [ext_resource type="Texture2D" uid="uid://yuqjc6oyuqdg" path="res://asset/mine_cave_tiles/background2.png" id="2_ilme6"]
 [ext_resource type="Texture2D" uid="uid://c6d7qjri548rr" path="res://asset/mine_cave_tiles/background3.png" id="3_nk2qc"]
@@ -3056,6 +3057,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ilme6")
 
 [node name="test_scene" type="Node"]
+script = ExtResource("1_ilme6")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
