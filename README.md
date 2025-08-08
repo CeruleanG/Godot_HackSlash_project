@@ -7,15 +7,17 @@ The concept of the game is where the player controls a character and fights an i
 
 # Current progress
 <img src="https://media.giphy.com/media/HCmg5z4pUtnbxRkrUg/giphy.gif" width="300">
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm11MjhmZDYybDluYnozNnQzdmV5MHh2dGtrbm9scmZ4d2k4NTBkcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ymr3zh2FGL2Vvpddtd/giphy.gif" width="300">
 
 Basic character control logic has been implemented. Player can control the character to move, jump, dash as well as performing a 3-steps attack. Player can be hurt and die.
 
-A enemy has been implemented. Though it doesn't not actively do anything. It simply can be hurt and die.
+A enemy has been implemented. It loops between two attack modes with a few seconds in between: it either charges the character and swing its weapon or retreats and shoots bullets at the character.
 
 
 
 # Future plan
-1. Add AI to the enemy
+1. Add a main screen (with sound control)
+2. Add a pause menu
 2. Add an upgrade scene after the player is defeated
 
 # Known issues

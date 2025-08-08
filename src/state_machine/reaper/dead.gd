@@ -8,16 +8,6 @@ func enter(context:Dictionary = {}) -> void:
 
 
 
-
-func exit() -> void:
-	super()
-
-
-
-func frame_update(delta: float) -> void:
-	pass
-
-
-
-func physics_update(delta: float) -> void:
-	pass
+func on_animation_finished(anim_name: StringName):
+	if anim_name == "death":
+		enemy.queue_free()

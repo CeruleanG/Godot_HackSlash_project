@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
+@export var player: CharacterBody2D
+
 @onready var animation_player: CharacterAnimationPlayer = $AnimationPlayer
 @onready var hurt_animation: CharacterAnimationPlayer = $HurtAnimation
 @onready var progress_bar: ProgressBar = $CanvasLayer/VBoxContainer/HBoxContainer/ProgressBar
 @onready var health: Health = $Health
 
 signal receive_hit
+
+const SPEED = 900
+const ACCELERATION = 10
 
 var is_dead: bool = false
 var invulnerable: bool = false
