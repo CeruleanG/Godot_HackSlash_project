@@ -487,7 +487,8 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_rl62b"]
 resource_name = "dashing"
-length = 0.3
+length = 0.2
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -531,10 +532,10 @@ tracks/3/path = NodePath("Sprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [1, 3]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -910,6 +911,7 @@ _data = {
 [node name="player" type="CharacterBody2D" groups=["Player_body"]]
 z_index = 3
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_rkbax")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("body")]
@@ -1012,7 +1014,6 @@ position = Vector2(0.25, 2)
 shape = SubResource("RectangleShape2D_2smqc")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_2smqc")
 
@@ -1028,8 +1029,8 @@ metadata/_custom_type_script = "uid://bu1x4j5ovdkc2"
 [node name="Camera" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
-limit_right = 5000
-limit_bottom = 980
+limit_right = 1720
+limit_bottom = 950
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -1062,7 +1063,7 @@ script = ExtResource("12_cwolq")
 
 [node name="dash_duration" type="Timer" parent="state_machine/dashing"]
 process_callback = 0
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [node name="attacking" type="Node" parent="state_machine"]

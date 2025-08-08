@@ -21,7 +21,6 @@ func enter(context:Dictionary = {}) -> void:
 	super()
 	var input_direction = sign(Input.get_axis("left", "right"))
 	animation.flip_sprite(input_direction)
-	player.velocity.y = 0
 	facing = animation.sprite.scale.x
 	animation.play("attacking3")
 	AudioController.play_sound("Attack",0.3)
@@ -43,7 +42,7 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = move_toward(player.velocity.x, player.SPEED * speed_mod * direction, player.ACCELERATION * delta)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.FRICTION * delta)	
-	player.velocity += player.get_gravity() * delta * player.GRAVITY_LOW
+	player.velocity += player.get_gravity() * delta
 	player.move_and_slide()
 	
 	
