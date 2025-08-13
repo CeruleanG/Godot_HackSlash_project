@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://oxjt72j8i637"
+path="res://.godot/imported/30 Misgivings.wav-8040c4fa1363c1a3acdb3d459a242340.sample"
+
+[deps]
+
+source_file="res://asset/music/30 Misgivings.wav"
+dest_files=["res://.godot/imported/30 Misgivings.wav-8040c4fa1363c1a3acdb3d459a242340.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

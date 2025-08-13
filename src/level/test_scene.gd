@@ -5,8 +5,4 @@ extends Node
 func _ready() -> void:
 	Ui.heart.toggle_visible(true)
 	Ui.fade_transition.fade_to_bright()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	AudioController.play_sound("Combat")

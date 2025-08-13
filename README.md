@@ -16,9 +16,7 @@ A enemy has been implemented. It loops between two attack modes with a few secon
 
 
 # Future plan
-1. Add a main screen (with sound control)
-2. Add a pause menu
-2. Add an upgrade scene after the player is defeated
+1. Add an upgrade scene after the player is defeated
 
 # Known issues
 1. When the player attack in the air and then cancel with dash in the opposite direction, the character sprite will not flip to the right facing as well as the dashing speed

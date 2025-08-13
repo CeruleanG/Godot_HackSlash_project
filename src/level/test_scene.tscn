@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d1jm0kdjsdoh"]
+[gd_scene load_steps=16 format=4 uid="uid://d1jm0kdjsdoh"]
 
 [ext_resource type="PackedScene" uid="uid://c1tv4ktn7kmt6" path="res://src/player/player.tscn" id="1_fovfd"]
 [ext_resource type="Script" uid="uid://b3ttf800kq24p" path="res://src/level/test_scene.gd" id="1_ilme6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxsbys4bx2lbl" path="res://asset/mine_cave_tiles/background4a.png" id="4_5ii00"]
 [ext_resource type="PackedScene" uid="uid://urvb4jjje56x" path="res://src/enemy/reaper/reaper.tscn" id="5_dxo6u"]
 [ext_resource type="Texture2D" uid="uid://yq3y1820w2ii" path="res://asset/mine_cave_tiles/mainlev_build.png" id="5_o8bmp"]
+[ext_resource type="PackedScene" uid="uid://4vv1icfgrvmx" path="res://src/Interface/sound_control/option_menu.tscn" id="9_nk2qc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8bmp"]
 texture = ExtResource("5_o8bmp")
@@ -3122,3 +3123,7 @@ position = Vector2(520, 679)
 [node name="Reaper" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_dxo6u")]
 position = Vector2(689, 601)
 player = NodePath("../player")
+
+[node name="OptionMenu" parent="." instance=ExtResource("9_nk2qc")]
+process_mode = 3
+visible = false

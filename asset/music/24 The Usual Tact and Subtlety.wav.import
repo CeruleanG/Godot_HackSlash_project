@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dg6jtbcc1nvwv"
+path="res://.godot/imported/24 The Usual Tact and Subtlety.wav-ce780aaa65019ea147c777b0daf3fc1b.sample"
+
+[deps]
+
+source_file="res://asset/music/24 The Usual Tact and Subtlety.wav"
+dest_files=["res://.godot/imported/24 The Usual Tact and Subtlety.wav-ce780aaa65019ea147c777b0daf3fc1b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
