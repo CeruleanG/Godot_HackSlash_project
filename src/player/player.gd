@@ -36,7 +36,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const DASH_SPEED = 600
-const JUMP_VELOCITY = 400.0
+var JUMP_VELOCITY = 500.0 + Upgrade.dataDict[5]["Stat"][Upgrade.statDict[5]]
 const MAX_SPEED = 600.0
 const MAX_JUMP_VELOCITY = 700.0
 const ACCELERATION = 700.0
@@ -45,14 +45,15 @@ const GRAVITY_LOW = 0.2
 
 
 
-var max_jump = 2 #This number counts the initial jump, so 1 mid-air
+var max_jump = Upgrade.dataDict[1]["Stat"][Upgrade.statDict[1]]
 var jump_count = 0
-var max_dash = 1
+var max_dash = Upgrade.dataDict[0]["Stat"][Upgrade.statDict[0]]
 var dash_count = 0
 
 
 var is_dead = false
 var invulnerable = false
+var power_dash : bool = Upgrade.dataDict[4]["Stat"][Upgrade.statDict[4]]
 
 
 ## [b]A signal that triggers upon player inputting keys.[/b][br][br]Its [method Signal.connect]
@@ -120,10 +121,9 @@ func _process(delta: float) -> void:
 	last_direction = direction
 
 
-## TODO: This method is a placeholder logic to simplly reset the current scene.
-## 		 It should be delegated to the scene itself to manage.
+
 func on_death_occurred():
-	get_tree().reload_current_scene()
+	pass
 
 func on_health_update(current_health: float):
 	Ui.set_hp(current_health as int)

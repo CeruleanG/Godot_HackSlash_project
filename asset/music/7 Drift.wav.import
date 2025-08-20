@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://g41csolfep28"
+path="res://.godot/imported/7 Drift.wav-73e5fa8f09e0b508f84526f70d837f8e.sample"
+
+[deps]
+
+source_file="res://asset/music/7 Drift.wav"
+dest_files=["res://.godot/imported/7 Drift.wav-73e5fa8f09e0b508f84526f70d837f8e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,20 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhanuh1txt47u"]
+[gd_scene load_steps=16 format=3 uid="uid://bhanuh1txt47u"]
 
 [ext_resource type="Script" uid="uid://8y42xfjw40ho" path="res://src/controller/audio_controller.gd" id="1_5qpge"]
-[ext_resource type="AudioStream" uid="uid://bh013pr32n0xm" path="res://asset/sound_effect/07_human_atk_sword_1.wav" id="1_lac31"]
-[ext_resource type="AudioStream" uid="uid://n17jrwoirvfa" path="res://asset/sound_effect/07_human_atk_sword_2.wav" id="2_5qpge"]
-[ext_resource type="AudioStream" uid="uid://bpw6veg5nhnfd" path="res://asset/sound_effect/07_human_atk_sword_3.wav" id="3_myfby"]
+[ext_resource type="AudioStream" uid="uid://box8h2qs8oq1f" path="res://asset/sound_effect/Sword Attack 1.wav" id="2_5qpge"]
+[ext_resource type="AudioStream" uid="uid://c7enyepk8opvj" path="res://asset/sound_effect/Sword Attack 2.wav" id="3_myfby"]
+[ext_resource type="AudioStream" uid="uid://cwegqvg7lbsxt" path="res://asset/sound_effect/Sword Attack 3.wav" id="4_57h60"]
 [ext_resource type="AudioStream" uid="uid://do68jk35wmxq6" path="res://asset/sound_effect/15_human_dash_1.wav" id="4_fy8ix"]
 [ext_resource type="AudioStream" uid="uid://hnuaov5f8gpp" path="res://asset/sound_effect/15_human_dash_2.wav" id="5_57h60"]
 [ext_resource type="AudioStream" uid="uid://dn8h7ja2hchpm" path="res://asset/sound_effect/12_human_jump_1.wav" id="6_uehl4"]
 [ext_resource type="AudioStream" uid="uid://b0kn5xneepgah" path="res://asset/sound_effect/12_human_jump_2.wav" id="7_fx2ab"]
 [ext_resource type="AudioStream" uid="uid://cpjim1kvr38gd" path="res://asset/sound_effect/12_human_jump_3.wav" id="8_dyb6v"]
+[ext_resource type="AudioStream" uid="uid://g41csolfep28" path="res://asset/music/7 Drift.wav" id="10_myfby"]
+[ext_resource type="AudioStream" uid="uid://bdoak7vta85t5" path="res://asset/music/6 Combat.wav" id="11_fy8ix"]
+[ext_resource type="AudioStream" uid="uid://bv6ro0mxb6kun" path="res://asset/music/16 Recollections.wav" id="12_57h60"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lg6u7"]
 streams_count = 3
-stream_0/stream = ExtResource("1_lac31")
-stream_1/stream = ExtResource("2_5qpge")
-stream_2/stream = ExtResource("3_myfby")
+stream_0/stream = ExtResource("2_5qpge")
+stream_1/stream = ExtResource("3_myfby")
+stream_2/stream = ExtResource("4_57h60")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a2tbi"]
 streams_count = 2
@@ -28,13 +31,30 @@ stream_1/stream = ExtResource("7_fx2ab")
 stream_2/stream = ExtResource("8_dyb6v")
 
 [node name="AudioController" type="Node"]
+process_mode = 3
 script = ExtResource("1_5qpge")
 
 [node name="Attack" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_lg6u7")
+bus = &"SFX"
 
 [node name="Dash" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_a2tbi")
+bus = &"SFX"
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_486lp")
+bus = &"SFX"
+
+[node name="Main" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_myfby")
+bus = &"BGM"
+
+[node name="Combat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_fy8ix")
+volume_db = -10.0
+
+[node name="Upgrade" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_57h60")
+volume_db = -5.0
+bus = &"BGM"

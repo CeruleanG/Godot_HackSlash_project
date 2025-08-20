@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn4elpdm0nwau"]
+
+[ext_resource type="Texture2D" uid="uid://0dslwo30l0ia" path="res://asset/level_scene/Background_0.png" id="1_5bjmd"]
+[ext_resource type="Script" uid="uid://wuht3o8hanm3" path="res://src/level/main_menu/main_menu.gd" id="1_84jla"]
+[ext_resource type="Texture2D" uid="uid://dmarsrhurjllw" path="res://asset/level_scene/Background_1.png" id="2_sboh4"]
+[ext_resource type="Script" uid="uid://b3i7pcljrcqw" path="res://src/level/main_menu/exit.gd" id="3_84jla"]
+[ext_resource type="Script" uid="uid://c7jxlwje1jlya" path="res://src/level/main_menu/start.gd" id="3_sboh4"]
+[ext_resource type="PackedScene" uid="uid://4vv1icfgrvmx" path="res://src/Interface/sound_control/option_menu.tscn" id="6_xrb1u"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_84jla")
+
+[node name="BaseMenu" type="CanvasLayer" parent="."]
+
+[node name="BaseUI" type="MarginContainer" parent="BaseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoonBackground" type="TextureRect" parent="BaseMenu/BaseUI"]
+layout_mode = 2
+texture = ExtResource("1_5bjmd")
+
+[node name="BuildingBackground" type="TextureRect" parent="BaseMenu/BaseUI"]
+layout_mode = 2
+texture = ExtResource("2_sboh4")
+
+[node name="TitleAndButton" type="MarginContainer" parent="BaseMenu/BaseUI"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VboxContainer" type="VBoxContainer" parent="BaseMenu/BaseUI/TitleAndButton"]
+layout_mode = 2
+
+[node name="GameTitle" type="MarginContainer" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/GameTitle"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "Sythe & Blade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="MarginContainer" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 450
+theme_override_constants/margin_right = 450
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Start"
+script = ExtResource("3_sboh4")
+
+[node name="_seperate" type="Control" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Option" type="Button" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Option"
+
+[node name="_seperate2" type="Control" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+script = ExtResource("3_84jla")
+
+[node name="OptionMenu" parent="." instance=ExtResource("6_xrb1u")]
+visible = false
+
+[connection signal="pressed" from="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer/Start" to="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer/Start" method="_on_pressed"]
+[connection signal="pressed" from="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer/Exit" to="BaseMenu/BaseUI/TitleAndButton/VboxContainer/Buttons/VBoxContainer/Exit" method="_on_pressed"]

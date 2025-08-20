@@ -1,0 +1,287 @@
+[gd_scene load_steps=26 format=3 uid="uid://cxannryqb4if7"]
+
+[ext_resource type="Texture2D" uid="uid://d4m004wl2p1sv" path="res://asset/UI_component/paper_UI/Sprites/Book Desk/5.png" id="1_5aynm"]
+[ext_resource type="Script" uid="uid://bo7ys3h6xputn" path="res://src/level/upgrade/upgrade_menu.gd" id="1_nituo"]
+[ext_resource type="Texture2D" uid="uid://dd1cteuwji6ag" path="res://asset/UI_component/paper_UI/Sprites/Paper UI Pack/Folding & Cutout/10 Calander/1.png" id="2_mym4r"]
+[ext_resource type="Texture2D" uid="uid://or7tw7rlihfw" path="res://asset/UI_component/paper_UI/SpriteSheet/Plain Paper UI SpriteSheet.png" id="3_5aynm"]
+[ext_resource type="PackedScene" uid="uid://jv6y7r822m5t" path="res://src/level/upgrade/item.tscn" id="3_du6th"]
+[ext_resource type="Texture2D" uid="uid://4vjmlrcpubhy" path="res://asset/UI_component/paper_UI/Sprites/Paper UI Pack/Plain/5 Mini Map/1.png" id="4_1it67"]
+[ext_resource type="Texture2D" uid="uid://6jga6j7rfj6u" path="res://asset/UI_component/paper_UI/Sprites/Content/5 Holders/7.png" id="4_du6th"]
+[ext_resource type="Texture2D" uid="uid://cbjrkbg5i3181" path="res://asset/UI_component/paper_UI/Sprites/Content/5 Holders/6.png" id="6_w42vb"]
+[ext_resource type="Script" uid="uid://cwlvd6x5pfdkc" path="res://src/level/upgrade/record.gd" id="7_qvwxq"]
+[ext_resource type="Script" uid="uid://cogf4hctxqjc1" path="res://src/level/upgrade/gold_count.gd" id="8_w6j7j"]
+[ext_resource type="Script" uid="uid://cdcgcwxyddufn" path="res://src/level/upgrade/option.gd" id="9_3lrsw"]
+[ext_resource type="Script" uid="uid://do64ugkuw63cp" path="res://src/level/upgrade/continue.gd" id="11_86urr"]
+[ext_resource type="PackedScene" uid="uid://4vv1icfgrvmx" path="res://src/Interface/sound_control/option_menu.tscn" id="11_ux7so"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5aynm"]
+texture = ExtResource("1_5aynm")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du6th"]
+atlas = ExtResource("2_mym4r")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvwxq"]
+atlas = ExtResource("4_1it67")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6j7j"]
+texture = ExtResource("4_du6th")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3lrsw"]
+texture = ExtResource("6_w42vb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nituo"]
+atlas = ExtResource("3_5aynm")
+region = Rect2(916, 3967, 26, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_86urr"]
+texture = ExtResource("4_du6th")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux7so"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yxmd"]
+atlas = ExtResource("3_5aynm")
+region = Rect2(400, 3936, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfbj7"]
+texture = SubResource("AtlasTexture_3yxmd")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7et8"]
+atlas = ExtResource("3_5aynm")
+region = Rect2(464, 3936, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_av1q1"]
+texture = SubResource("AtlasTexture_b7et8")
+texture_margin_left = 1.0
+texture_margin_top = 3.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[node name="upgrade_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nituo")
+
+[node name="BackDesk" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5aynm")
+
+[node name="DeskHeight" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeskHeight"]
+layout_mode = 2
+
+[node name="Shop" type="NinePatchRect" parent="DeskHeight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+texture = SubResource("AtlasTexture_du6th")
+patch_margin_left = 130
+patch_margin_top = 105
+patch_margin_right = 130
+patch_margin_bottom = 110
+
+[node name="ContentArea" type="MarginContainer" parent="DeskHeight/HBoxContainer/Shop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 100
+
+[node name="2rows" type="VBoxContainer" parent="DeskHeight/HBoxContainer/Shop/ContentArea"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="row1" type="HBoxContainer" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="item" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row1" instance=ExtResource("3_du6th")]
+layout_mode = 2
+
+[node name="item2" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row1" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 4
+
+[node name="item3" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row1" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 1
+
+[node name="item4" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row1" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 5
+
+[node name="row2" type="HBoxContainer" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="item" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row2" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 2
+
+[node name="item2" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row2" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 6
+
+[node name="item3" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row2" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 3
+
+[node name="item4" parent="DeskHeight/HBoxContainer/Shop/ContentArea/2rows/row2" instance=ExtResource("3_du6th")]
+layout_mode = 2
+key = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="DeskHeight/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Option" type="NinePatchRect" parent="DeskHeight/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
+texture = SubResource("AtlasTexture_qvwxq")
+region_rect = Rect2(0, -5, 0, 0)
+patch_margin_left = 110
+patch_margin_top = 110
+patch_margin_right = 140
+patch_margin_bottom = 110
+
+[node name="ContentArea" type="MarginContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Record" type="PanelContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_w6j7j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Record"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Record/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+text = "Record"
+horizontal_alignment = 1
+
+[node name="record" type="Label" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Record/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_font_sizes/font_size = 11
+text = "ax"
+script = ExtResource("7_qvwxq")
+
+[node name="GoldCount" type="HBoxContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/GoldCount"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3lrsw")
+
+[node name="icon" type="TextureRect" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/GoldCount/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_nituo")
+
+[node name="Gold_count" type="Label" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/GoldCount"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_86urr")
+text = "1000"
+horizontal_alignment = 1
+script = ExtResource("8_w6j7j")
+
+[node name="Option" type="Button" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.0682542, 0.721014, 0.523995, 1)
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_colors/font_focus_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_colors/font_pressed_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ux7so")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfbj7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_av1q1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nfbj7")
+text = "Option"
+script = ExtResource("9_3lrsw")
+
+[node name="OptionMenu" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Option" instance=ExtResource("11_ux7so")]
+visible = false
+
+[node name="Continue" type="Button" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.0682542, 0.721014, 0.523995, 1)
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_colors/font_focus_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_colors/font_pressed_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ux7so")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfbj7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_av1q1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nfbj7")
+text = "Try again"
+script = ExtResource("11_86urr")
+
+[node name="PanelContainer" type="PanelContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea"]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="DeskHeight/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Option" to="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Option" method="_on_pressed"]
+[connection signal="pressed" from="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Continue" to="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Continue" method="_on_pressed"]

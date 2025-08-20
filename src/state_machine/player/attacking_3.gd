@@ -24,6 +24,9 @@ func enter(context:Dictionary = {}) -> void:
 	facing = animation.sprite.scale.x
 	animation.play("attacking3")
 	AudioController.play_sound("Attack",0.3)
+	await get_tree().create_timer(0.2).timeout
+	if not player.is_on_floor():
+		player.velocity.y = -250
 	#print_debug("entering ATTACKING COMBO 3 state")
 
 func exit() -> void:

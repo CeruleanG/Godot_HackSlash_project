@@ -408,7 +408,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62vb4"]
-size = Vector2(9, 30.5)
+size = Vector2(9, 35.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od2pq"]
 size = Vector2(19.5, 20)
@@ -461,11 +461,11 @@ script = ExtResource("7_4xh65")
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
 script = ExtResource("2_al2jm")
-health = 10.0
+health = 200.0
 metadata/_custom_type_script = "uid://dyoqdgu3nnjjx"
 
 [node name="HurtShape" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
-position = Vector2(-0.5, -5.25)
+position = Vector2(-0.5, -2.875)
 shape = SubResource("RectangleShape2D_62vb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
@@ -476,6 +476,8 @@ shape = SubResource("RectangleShape2D_od2pq")
 visible = false
 monitoring = false
 script = ExtResource("9_i77uy")
+damage = 2.0
+knock_back_power = 1.5
 metadata/_custom_type_script = "uid://c17m3rqfcagq5"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/HitBoxBasic1"]
@@ -487,6 +489,7 @@ disabled = true
 visible = false
 monitoring = false
 script = ExtResource("9_i77uy")
+damage = 3.0
 metadata/_custom_type_script = "uid://c17m3rqfcagq5"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprite2D/HitBoxBasic2"]

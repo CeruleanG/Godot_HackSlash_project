@@ -25,7 +25,7 @@ func frame_update(delta: float) -> void:
 
 
 func physics_update(delta: float) -> void:
-	if (chasing_target - enemy.global_position).length() <= 100:
+	if (chasing_target - enemy.global_position).length() <= 90:
 		Transition.emit(self,"attacking")
 		return
 	var direction := chasing_vec.normalized()

@@ -12,9 +12,8 @@ func play_sound(sound: StringName, delay_s:float = 0.0):
 	if target.size() > 1:
 		print_debug("Sound player: multiple sound with the same name found")
 		return
-	if delay_s >= 0:
+	if delay_s > 0:
 		await get_tree().create_timer(delay_s).timeout
-
 	target[0].stop()
 	target[0].play()
 

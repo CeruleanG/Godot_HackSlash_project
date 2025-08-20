@@ -287,6 +287,7 @@ script = ExtResource("3_uu3t3")
 [node name="HitBox" type="Area2D" parent="Sprite2D" groups=["Enemy_hit_box"]]
 collision_mask = 3
 script = ExtResource("3_y1kxb")
+damage = 2.0
 metadata/_custom_type_script = "uid://c17m3rqfcagq5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]

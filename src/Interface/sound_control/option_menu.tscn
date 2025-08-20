@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://4vv1icfgrvmx"]
+
+[ext_resource type="Script" uid="uid://cfqu6l5pibhcf" path="res://src/Interface/sound_control/option_menu.gd" id="1_5e8bp"]
+[ext_resource type="Script" uid="uid://bdomt8y51kxty" path="res://src/Interface/sound_control/slider.gd" id="2_tn3x8"]
+
+[node name="OptionMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_5e8bp")
+
+[node name="background" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.466667)
+offset_left = 250.0
+offset_top = 200.0
+offset_right = 1030.0
+offset_bottom = 670.0
+
+[node name="Option" type="MarginContainer" parent="background"]
+layout_mode = 2
+
+[node name="edges" type="MarginContainer" parent="background/Option"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 200
+
+[node name="VboxContainer" type="VBoxContainer" parent="background/Option/edges"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="background/Option/edges/VboxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="BGM" type="HBoxContainer" parent="background/Option/edges/VboxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="background/Option/edges/VboxContainer/BGM"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "BGM"
+
+[node name="ColorRect" type="ColorRect" parent="background/Option/edges/VboxContainer/BGM"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="background/Option/edges/VboxContainer/BGM"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.2
+step = 0.01
+scrollable = false
+script = ExtResource("2_tn3x8")
+bus_name = "BGM"
+
+[node name="Control2" type="Control" parent="background/Option/edges/VboxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="SFX" type="HBoxContainer" parent="background/Option/edges/VboxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="background/Option/edges/VboxContainer/SFX"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="ColorRect" type="ColorRect" parent="background/Option/edges/VboxContainer/SFX"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="background/Option/edges/VboxContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.2
+step = 0.01
+scrollable = false
+script = ExtResource("2_tn3x8")
+bus_name = "SFX"
+
+[node name="Control3" type="Control" parent="background/Option/edges/VboxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="background"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "←"
+
+[connection signal="pressed" from="background/BackButton" to="." method="_on_back_button_pressed"]

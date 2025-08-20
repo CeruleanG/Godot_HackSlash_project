@@ -65,7 +65,8 @@ func on_player_event(event: String) :
 					player.dash_count += 1
 					Transition.emit(self,"dashing")
 			"attack":
-				Transition.emit(self,"attacking2")
+				if Upgrade.dataDict[6]["Stat"][Upgrade.statDict[6]][0]:
+					Transition.emit(self,"attacking2")
 			_:
 				pass
 
