@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cxannryqb4if7"]
+[gd_scene load_steps=26 format=3 uid="uid://cxannryqb4if7"]
 
 [ext_resource type="Texture2D" uid="uid://d4m004wl2p1sv" path="res://asset/UI_component/paper_UI/Sprites/Book Desk/5.png" id="1_5aynm"]
 [ext_resource type="Script" uid="uid://bo7ys3h6xputn" path="res://src/level/upgrade/upgrade_menu.gd" id="1_nituo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4vjmlrcpubhy" path="res://asset/UI_component/paper_UI/Sprites/Paper UI Pack/Plain/5 Mini Map/1.png" id="4_1it67"]
 [ext_resource type="Texture2D" uid="uid://6jga6j7rfj6u" path="res://asset/UI_component/paper_UI/Sprites/Content/5 Holders/7.png" id="4_du6th"]
 [ext_resource type="Texture2D" uid="uid://cbjrkbg5i3181" path="res://asset/UI_component/paper_UI/Sprites/Content/5 Holders/6.png" id="6_w42vb"]
+[ext_resource type="Script" uid="uid://cwlvd6x5pfdkc" path="res://src/level/upgrade/record.gd" id="7_qvwxq"]
 [ext_resource type="Script" uid="uid://cogf4hctxqjc1" path="res://src/level/upgrade/gold_count.gd" id="8_w6j7j"]
 [ext_resource type="Script" uid="uid://cdcgcwxyddufn" path="res://src/level/upgrade/option.gd" id="9_3lrsw"]
 [ext_resource type="Script" uid="uid://do64ugkuw63cp" path="res://src/level/upgrade/continue.gd" id="11_86urr"]
@@ -164,9 +165,19 @@ key = 3
 layout_mode = 2
 key = 7
 
-[node name="Option" type="NinePatchRect" parent="DeskHeight/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="DeskHeight/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Option" type="NinePatchRect" parent="DeskHeight/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
 texture = SubResource("AtlasTexture_qvwxq")
 region_rect = Rect2(0, -5, 0, 0)
 patch_margin_left = 110
@@ -174,7 +185,7 @@ patch_margin_top = 110
 patch_margin_right = 140
 patch_margin_bottom = 110
 
-[node name="ContentArea" type="MarginContainer" parent="DeskHeight/HBoxContainer/Option"]
+[node name="ContentArea" type="MarginContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,45 +197,47 @@ theme_override_constants/margin_top = 90
 theme_override_constants/margin_right = 70
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer/Option/ContentArea"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Record" type="PanelContainer" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer"]
+[node name="Record" type="PanelContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_w6j7j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Record"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Record"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Record/VBoxContainer"]
+[node name="Label" type="Label" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Record/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
 text = "Record"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Record/VBoxContainer"]
+[node name="record" type="Label" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Record/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_font_sizes/font_size = 11
 text = "ax"
+script = ExtResource("7_qvwxq")
 
-[node name="GoldCount" type="HBoxContainer" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer"]
+[node name="GoldCount" type="HBoxContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/GoldCount"]
+[node name="PanelContainer" type="PanelContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/GoldCount"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3lrsw")
 
-[node name="icon" type="TextureRect" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/GoldCount/PanelContainer"]
+[node name="icon" type="TextureRect" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/GoldCount/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("AtlasTexture_nituo")
 
-[node name="Gold_count" type="Label" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/GoldCount"]
+[node name="Gold_count" type="Label" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/GoldCount"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
@@ -233,7 +246,7 @@ text = "1000"
 horizontal_alignment = 1
 script = ExtResource("8_w6j7j")
 
-[node name="Option" type="Button" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer"]
+[node name="Option" type="Button" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.0682542, 0.721014, 0.523995, 1)
 theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
@@ -246,10 +259,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_nfbj7")
 text = "Option"
 script = ExtResource("9_3lrsw")
 
-[node name="OptionMenu" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Option" instance=ExtResource("11_ux7so")]
+[node name="OptionMenu" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Option" instance=ExtResource("11_ux7so")]
 visible = false
 
-[node name="Continue" type="Button" parent="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer"]
+[node name="Continue" type="Button" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.0682542, 0.721014, 0.523995, 1)
 theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
@@ -262,9 +275,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_nfbj7")
 text = "Try again"
 script = ExtResource("11_86urr")
 
-[node name="PanelContainer" type="PanelContainer" parent="DeskHeight/HBoxContainer/Option/ContentArea"]
+[node name="PanelContainer" type="PanelContainer" parent="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea"]
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Option" to="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Option" method="_on_pressed"]
-[connection signal="pressed" from="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Continue" to="DeskHeight/HBoxContainer/Option/ContentArea/VBoxContainer/Continue" method="_on_pressed"]
+[node name="Control2" type="Control" parent="DeskHeight/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Option" to="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Option" method="_on_pressed"]
+[connection signal="pressed" from="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Continue" to="DeskHeight/HBoxContainer/VBoxContainer/Option/ContentArea/VBoxContainer/Continue" method="_on_pressed"]

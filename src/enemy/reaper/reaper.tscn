@@ -461,7 +461,7 @@ script = ExtResource("7_4xh65")
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
 script = ExtResource("2_al2jm")
-health = 300.0
+health = 200.0
 metadata/_custom_type_script = "uid://dyoqdgu3nnjjx"
 
 [node name="HurtShape" type="CollisionShape2D" parent="Sprite2D/HurtBox"]

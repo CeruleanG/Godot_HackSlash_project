@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var health: Health = $Health
 
 signal receive_hit
+signal death_occurred
 
 const SPEED = 900
 const ACCELERATION = 10
@@ -27,7 +28,10 @@ func _ready() -> void:
 	invul_timer.one_shot = true
 	invul_timer.wait_time = invul_timer_value
 	get_tree().root.add_child.call_deferred(invul_timer)
-	
+
+#func _process(delta: float) -> void:
+	#print_debug(health.health)
+
 
 func on_receive_hit(context: Dictionary):
 	invulnerable = true

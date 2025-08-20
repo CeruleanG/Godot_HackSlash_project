@@ -3118,10 +3118,10 @@ tile_set = SubResource("TileSet_nk2qc")
 position = Vector2(1720, 950)
 
 [node name="player" parent="." instance=ExtResource("1_fovfd")]
-position = Vector2(520, 679)
+position = Vector2(873, 829)
 
 [node name="Reaper" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_dxo6u")]
-position = Vector2(689, 601)
+position = Vector2(873, 571)
 player = NodePath("../player")
 
 [node name="OptionMenu" parent="." instance=ExtResource("9_nk2qc")]

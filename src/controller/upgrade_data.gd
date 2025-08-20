@@ -49,16 +49,16 @@ var dataDict : Dictionary = {
 		"icon":preload("res://asset/UI_component/icons/attack.png"),
 		"Max_Level":3,
 		"Description":{
-			0: "Attacks have a base power of 3 (+1)",
-			1: "Attacks have a base power of 4 (+1)",
-			2: "Attacks have a base power of 5 (+1)",
-			3: "Attacks have a base power of 6"
+			0: "Attacks have a base power of 3 (+2)",
+			1: "Attacks have a base power of 5 (+2)",
+			2: "Attacks have a base power of 7 (+2)",
+			3: "Attacks have a base power of 9"
 		},
 		"Stat":{
 			0: 3,
-			1: 4,
-			2: 5,
-			3: 6
+			1: 5,
+			2: 7,
+			3: 9
 		},
 		"Cost":{
 			0: 75,
@@ -172,13 +172,17 @@ var dataDict : Dictionary = {
 
 var statDict: Dictionary = {
 	0:0,	# Dash /3 *
-	1:2,	# Jump	/2 *
+	1:0,	# Jump	/2 *
 	2:0,	# Attack /3 *
 	3:0,	# HP /3 *
 	4:0,	# PowerDash /1 *
-	5:1,	# PowerJump /1 *
-	6:2,	# Combo /2 *
+	5:0,	# PowerJump /1 *
+	6:0,	# Combo /2 *
 	7:0		# Regen	/3 *
 }
 
 var gold : int = 0
+var cumulated_gold : int = 0
+var cumulated_combat_time : int = 0
+var defeat_count : int = 0
+var victory_count : int = 0
