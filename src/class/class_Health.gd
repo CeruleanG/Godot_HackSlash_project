@@ -2,6 +2,7 @@ class_name Health extends Node
 
 @export var body: CharacterBody2D
 var health : float = 0
+var max_health : float = 0
 
 signal health_updated
 
@@ -13,6 +14,7 @@ func _ready() -> void:
 					## grandchild = each node under the path "$body/Sprite" that is a Hurtbox
 					health += grandchild.health
 					grandchild.area_entered.connect(_on_hurtbox_area_entered)
+	max_health = health
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

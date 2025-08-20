@@ -9,8 +9,6 @@ extends PlayerState
 # trasition:
 #	dash duration timer finishes -> falling/idling/running
 #	player presses jump and character can jump -> jumping
-#	TODO: allow character to double dash
-#	TODO: dash attack
 #	character is hit by an enemy -> delegate to character's reveive_hit signal (to hurt state)
 
 var dash_direction = 0
@@ -22,12 +20,14 @@ var gravity_modifier = 0.1
 
 func enter(context:Dictionary = {}) -> void:
 	super()
+	if player.power_dash:
+		player.invulnerable = true
 	base_velocity = abs(player.velocity.x)
 	player.velocity.y = 0
 	dash_direction = sign(Input.get_axis("left", "right"))
 	if dash_direction == 0: # fallback
 		dash_direction = sprite.scale.x
-			
+	animation.flip_sprite(dash_direction)
 	dash_duration.start()
 	animation.play("dashing")
 	AudioController.play_sound("Dash")
@@ -37,6 +37,8 @@ func exit() -> void:
 	super()
 	player.velocity.x = 0
 	dash_duration.stop()
+	if player.power_dash:
+		player.invulnerable = false
 	
 func frame_update(delta: float) -> void:
 	pass

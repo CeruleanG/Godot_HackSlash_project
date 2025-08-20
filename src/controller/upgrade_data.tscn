@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ojgbajrnb6vi"]
+
+[ext_resource type="Script" uid="uid://djomjh8e5j47d" path="res://src/controller/upgrade_data.gd" id="1_xnpea"]
+
+[node name="UpgradeData" type="Node"]
+script = ExtResource("1_xnpea")

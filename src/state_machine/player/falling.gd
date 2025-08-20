@@ -35,7 +35,7 @@ func physics_update(delta: float) -> void:
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.FRICTION * delta)
 	
-	player.velocity += player.get_gravity() * delta	
+	player.velocity += player.get_gravity() * delta * 3	
 	player.move_and_slide()
 	
 	# Transition logic

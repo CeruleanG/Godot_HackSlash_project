@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioController="*res://src/controller/audio_controller.tscn"
 Ui="*res://src/Interface/ui.tscn"
+Upgrade="*res://src/controller/upgrade_data.tscn"
 
 [display]
 

@@ -34,6 +34,8 @@ func on_receive_hit(context: Dictionary):
 	hurt_animation.play("hurt")
 	progress_bar.value = health.health
 	invul_timer.start()
+	if randf() <= Upgrade.dataDict[7]["Stat"][Upgrade.statDict[7]]:
+		player.health.damage_taken(-1)
 
 
 func on_invul_timeout():

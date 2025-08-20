@@ -1,0 +1,147 @@
+[gd_scene load_steps=26 format=3 uid="uid://jv6y7r822m5t"]
+
+[ext_resource type="Script" uid="uid://btq8exxhbrkk0" path="res://src/level/upgrade/item.gd" id="1_akm2k"]
+[ext_resource type="Texture2D" uid="uid://or7tw7rlihfw" path="res://asset/UI_component/paper_UI/SpriteSheet/Plain Paper UI SpriteSheet.png" id="1_lm0ca"]
+[ext_resource type="Texture2D" uid="uid://cnupi01mroe4t" path="res://asset/UI_component/icons/attack.png" id="2_akm2k"]
+[ext_resource type="Texture2D" uid="uid://6jga6j7rfj6u" path="res://asset/UI_component/paper_UI/Sprites/Content/5 Holders/7.png" id="3_dw5nb"]
+[ext_resource type="Script" uid="uid://ifacy01epkgn" path="res://src/level/upgrade/buybutton.gd" id="5_dw5nb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w42vb"]
+atlas = ExtResource("1_lm0ca")
+region = Rect2(306, 3827, 75, 75)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6j7j"]
+texture = SubResource("AtlasTexture_w42vb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nituo"]
+atlas = ExtResource("3_dw5nb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_86urr"]
+texture = SubResource("AtlasTexture_nituo")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lrsw"]
+atlas = ExtResource("1_lm0ca")
+region = Rect2(400, 3856, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nituo"]
+texture = SubResource("AtlasTexture_3lrsw")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1it67"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w42vb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6j7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lrsw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nituo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86urr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux7so"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qvwxq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yxmd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nfbj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7et8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av1q1"]
+atlas = ExtResource("1_lm0ca")
+region = Rect2(916, 3967, 26, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86urr"]
+atlas = ExtResource("1_lm0ca")
+region = Rect2(496, 3808, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ux7so"]
+texture = SubResource("AtlasTexture_86urr")
+texture_margin_left = 11.0
+texture_margin_top = 8.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="item" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_akm2k")
+
+[node name="details" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Logo" type="PanelContainer" parent="details"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_w6j7j")
+
+[node name="icon" type="TextureRect" parent="details/Logo"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_akm2k")
+stretch_mode = 2
+
+[node name="Purchase" type="MarginContainer" parent="details"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Price" type="Label" parent="details/Purchase"]
+custom_minimum_size = Vector2(85, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_86urr")
+text = "Price=120"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buy" type="PanelContainer" parent="details/Purchase"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_nituo")
+
+[node name="Buybutton" type="Button" parent="details/Purchase/Buy"]
+layout_mode = 2
+theme_override_colors/icon_hover_color = Color(0.967138, 0.940564, 0.889274, 1)
+theme_override_colors/icon_pressed_color = Color(0.889336, 0.808571, 0.651692, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1it67")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w42vb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w6j7j")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3lrsw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nituo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_86urr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ux7so")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qvwxq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3yxmd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nfbj7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b7et8")
+icon = SubResource("AtlasTexture_av1q1")
+script = ExtResource("5_dw5nb")
+
+[node name="stat" type="Label" parent="."]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_ux7so")
+text = "+1 Dash"
+autowrap_mode = 3
+
+[connection signal="pressed" from="details/Purchase/Buy/Buybutton" to="details/Purchase/Buy/Buybutton" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhanuh1txt47u"]
+[gd_scene load_steps=16 format=3 uid="uid://bhanuh1txt47u"]
 
 [ext_resource type="Script" uid="uid://8y42xfjw40ho" path="res://src/controller/audio_controller.gd" id="1_5qpge"]
 [ext_resource type="AudioStream" uid="uid://box8h2qs8oq1f" path="res://asset/sound_effect/Sword Attack 1.wav" id="2_5qpge"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cpjim1kvr38gd" path="res://asset/sound_effect/12_human_jump_3.wav" id="8_dyb6v"]
 [ext_resource type="AudioStream" uid="uid://g41csolfep28" path="res://asset/music/7 Drift.wav" id="10_myfby"]
 [ext_resource type="AudioStream" uid="uid://bdoak7vta85t5" path="res://asset/music/6 Combat.wav" id="11_fy8ix"]
+[ext_resource type="AudioStream" uid="uid://bv6ro0mxb6kun" path="res://asset/music/16 Recollections.wav" id="12_57h60"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lg6u7"]
 streams_count = 3
@@ -52,3 +53,8 @@ bus = &"BGM"
 [node name="Combat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_fy8ix")
 volume_db = -10.0
+
+[node name="Upgrade" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_57h60")
+volume_db = -5.0
+bus = &"BGM"
