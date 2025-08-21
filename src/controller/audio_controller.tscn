@@ -52,7 +52,7 @@ bus = &"BGM"
 
 [node name="Combat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_fy8ix")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="Upgrade" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_57h60")

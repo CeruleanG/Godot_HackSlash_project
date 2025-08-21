@@ -19,8 +19,8 @@ func on_death_occurred():
 	end_time = Time.get_unix_time_from_system()
 	var elapsed_time : int = (end_time - start_time)
 	var reaper_percent_health : float = reaper.health.health / reaper.health.max_health
-	Upgrade.gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 30
-	Upgrade.cumulated_gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 30
+	Upgrade.gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 80
+	Upgrade.cumulated_gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 80
 	Upgrade.cumulated_combat_time += elapsed_time
 	Upgrade.defeat_count += 1
 	AudioController.stop_sound("Combat")
@@ -30,8 +30,8 @@ func on_victory	():
 	end_time = Time.get_unix_time_from_system()
 	var elapsed_time : int = (end_time - start_time)
 	var reaper_percent_health : float = reaper.health.health / reaper.health.max_health
-	Upgrade.gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 30
-	Upgrade.cumulated_gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 30 + 30
+	Upgrade.gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 80 + 50
+	Upgrade.cumulated_gold += clamp(elapsed_time,0,90) + (1.0 - reaper_percent_health) * 80 + 50
 	Upgrade.cumulated_combat_time += elapsed_time
 	Upgrade.victory_count += 1
 	AudioController.stop_sound("Combat")

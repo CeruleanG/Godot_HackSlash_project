@@ -15,5 +15,6 @@ func handle_toggle():
 		get_tree().paused = false
 
 func _on_back_button_pressed() -> void:
+	exit_pressed.emit()
 	handle_toggle()
 	
